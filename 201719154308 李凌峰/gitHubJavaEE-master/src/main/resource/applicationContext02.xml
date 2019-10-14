@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+
+
+    <bean id="meetingDao" class="shangji02.com.itheima.assemble.dao.MeetingDaoImpl" />
+    <bean id="meetingService" class="shangji02.com.itheima.assemble.service.MeetingServiceImpl">
+        <property name="meetingDao" ref="meetingDao" />
+    </bean>
+    <bean id="car" class="shangji02.com.itheima.assemble.entity.Car">
+        <property name="brand" value="上海大众" />
+        <property name="color" value="白色" />
+        <property name="rank" value="1" />
+    </bean>
+    <bean id="car1" class="shangji02.com.itheima.assemble.entity.Car">
+        <property name="brand" value="路虎" />
+        <property name="color" value="白色" />
+        <property name="rank" value="4" />
+    </bean>
+    <bean id="boss1" class="shangji02.com.itheima.assemble.entity.Boss" >
+        <property name="name" value="张三" />
+        <property name="car" ref="car" />
+        <property name="company" value="阿里巴巴" />
+        <property name="hobby" value="篮球" />
+    </bean>
+    <bean id="boss2" class="shangji02.com.itheima.assemble.entity.Boss" >
+        <property name="name" value="李四" />
+        <property name="car" ref="car1" />
+        <property name="company" value="阿里巴巴" />
+        <property name="hobby" value="篮球" />
+    </bean>
+    <bean id="boss3" class="shangji02.com.itheima.assemble.entity.Boss" >
+        <property name="name" value="王五" />
+        <property name="car" ref="car" />
+        <property name="company" value="阿里巴巴" />
+        <property name="hobby" value="篮球" />
+    </bean>
+    <bean id="meeting" class="shangji02.com.itheima.assemble.entity.Meeting">
+
+        <property name="title" value="阿里项目" />
+        <property name="list">
+            <list>
+                <ref bean="boss1"/>
+                <ref bean="boss2"/>
+                <ref bean="boss3"/>
+            </list>
+        </property>
+
+    </bean>
+
+
+</beans>
